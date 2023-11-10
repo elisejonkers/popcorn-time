@@ -16,7 +16,7 @@ function MovieSummary(props){
           <button
               className ="deleteButton"
               onClick={function () {
-                  props.callbackToDelete(props.movieDetails.title);
+                  props.callbackToDelete(props.movieDetails.id);
               }}>
               Delete
           </button>

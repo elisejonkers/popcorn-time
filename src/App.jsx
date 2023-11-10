@@ -12,13 +12,25 @@ function App() {
 
 
   const addNewMovie = (newMovie) => {
-    const newList = [newMovie, ...moviesToDisplay];
+    const movieIds = moviesToDisplay.map(function(elm){
+      return elm.id
+    })
+    const maxId= Math.max(...movieIds)
+    const nextId = maxId + 1
+
+    const movieDetails = {
+      ...newMovie, 
+      id: nextId
+    }
+
+
+    const newList = [movieDetails, ...moviesToDisplay];
     setMoviesToDisplay(newList);
   }
 
-  const deleteMovie = (movieTitle) => {
+  const deleteMovie = (movieID) => {
     const newList = moviesToDisplay.filter((movieDetails) => {
-      return movieDetails.title !== movieTitle;
+      return movieDetails.id !== movieID;
     });
     setMoviesToDisplay(newList);
   }

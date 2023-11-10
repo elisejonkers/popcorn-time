@@ -1,0 +1,12 @@
+.Header h1 {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 3rem;
+    margin: 1rem;
+}
+
+.Header h2 {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 1rem;
+}

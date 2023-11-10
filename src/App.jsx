@@ -1,49 +1,52 @@
-import { useState } from 'react';
+import { useState } from "react";
 import movies from "./data/movies.json";
-import './App.css'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import AddMovie from './components/AddMovie';
-import MovieList from './components/MovieList';
+import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import AddMovie from "./components/AddMovie";
+import MovieList from "./components/MovieList";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About"
 
 function App() {
-
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
 
-
   const addNewMovie = (newMovie) => {
-    const movieIds = moviesToDisplay.map(function(elm){
-      return elm.id
-    })
-    const maxId= Math.max(...movieIds)
-    const nextId = maxId + 1
+    const movieIds = moviesToDisplay.map(function (elm) {
+      return elm.id;
+    });
+    const maxId = Math.max(...movieIds);
+    const nextId = maxId + 1;
 
     const movieDetails = {
-      ...newMovie, 
-      id: nextId
-    }
-
+      ...newMovie,
+      id: nextId,
+    };
 
     const newList = [movieDetails, ...moviesToDisplay];
     setMoviesToDisplay(newList);
-  }
+  };
 
   const deleteMovie = (movieID) => {
     const newList = moviesToDisplay.filter((movieDetails) => {
       return movieDetails.id !== movieID;
     });
     setMoviesToDisplay(newList);
-  }
-
+  };
 
   return (
     <>
       <Header numberOfMovies={moviesToDisplay.length} />
       <AddMovie callbackToAddMovie={addNewMovie} />
-      <MovieList moviesArr={moviesToDisplay} callbackToDelete={deleteMovie}  />
+
+      <Routes>
+        <Route path="/" element={<p> <MovieList moviesArr={moviesToDisplay} allbackToDelete={deleteMovie} /></p>} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

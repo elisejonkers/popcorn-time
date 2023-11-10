@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import movies from "./data/movies.json";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AddMovie from "./components/AddMovie";
 import MovieList from "./components/MovieList";
-import { Route, Routes } from "react-router-dom";
 import About from "./components/About"
+
+
 
 function App() {
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);

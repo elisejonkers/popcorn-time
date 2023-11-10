@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function MovieSummary(props){
   return(
       <section className="container">
@@ -20,6 +22,12 @@ function MovieSummary(props){
               }}>
               Delete
           </button>
+          <br/>
+
+          <Link to={`/movies/${props.movieDetails.id}`}>More Details</Link>
+
+        
+
           </div>
 
       </section>

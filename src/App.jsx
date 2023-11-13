@@ -6,9 +6,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AddMovie from "./components/AddMovie";
 import MovieList from "./components/MovieList";
-import About from "./components/About"
-import MovieDetails from "./components/MovieDetails"
-
+import About from "./components/About";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
@@ -42,13 +41,23 @@ function App() {
       <AddMovie callbackToAddMovie={addNewMovie} />
 
       <Routes>
-        <Route path="/" element={<p> <MovieList moviesArr={moviesToDisplay} allbackToDelete={deleteMovie} /></p>} />
-        <Route path="/movies/:movieId" element={<MovieDetails moviesArr={moviesToDisplay}/>} />
+        <Route
+          path="/"
+          element={
+            <p>
+              {" "}
+              <MovieList
+                moviesArr={moviesToDisplay}
+                callbackToDelete={deleteMovie}
+              />
+            </p>
+          }
+        />
+        <Route
+          path="/movies/:movieId"
+          element={<MovieDetails moviesArr={moviesToDisplay} />}
+        />
         <Route path="/about" element={<About />} />
-
-        
-
-
       </Routes>
 
       <Footer />

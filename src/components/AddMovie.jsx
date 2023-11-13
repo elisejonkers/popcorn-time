@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 function AddMovie(props) {
+
+    console.log("ADD Movie comp was invoked")
+
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState("");
 

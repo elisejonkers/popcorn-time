@@ -10,6 +10,9 @@ import About from "./components/About";
 import MovieDetails from "./components/MovieDetails";
 
 function App() {
+
+  console.log("App comp was invoked") 
+
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
 
   const addNewMovie = (newMovie) => {
